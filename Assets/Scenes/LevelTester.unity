@@ -4200,10 +4200,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6998020495457887846, guid: 6bd7b07221afc9146b17c1940a39e429, type: 3}
-      propertyPath: _controlBlock
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6998020495457887846, guid: 6bd7b07221afc9146b17c1940a39e429, type: 3}
       propertyPath: _virtualCamera
       value: 
       objectReference: {fileID: 1337628431}
