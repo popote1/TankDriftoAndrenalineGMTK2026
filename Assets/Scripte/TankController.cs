@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -37,27 +38,42 @@ public class TankController : MonoBehaviour
     //[SerializeField]private float _moveSpeed;
     [SerializeField]private float _rotationSpeed;
     
-    private InputAction _moveAction; 
+    private InputAction _moveAction;
+    private int wheelGrounded;
+    [SerializeField] private bool _controlBlock;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _moveAction = InputSystem.actions.FindAction("Move");
+        StaticEvent.OnGameStart += InstanceOnOnGameStart;
+        StaticEvent.OnBlockPlayerControl+= StaticEventOnOnBlockPlayerControl;
         
+        
+    }
+
+    private void OnDestroy() {
+        StaticEvent.OnGameStart -= InstanceOnOnGameStart;
+        StaticEvent.OnBlockPlayerControl-= StaticEventOnOnBlockPlayerControl;
+    }
+
+    private void StaticEventOnOnBlockPlayerControl(object sender, bool e)=> _controlBlock = e;
+    
+
+    private void InstanceOnOnGameStart(object sender, EventArgs e) {
+        _controlBlock = false;
     }
 
     // Update is called once per frame
     void Update() {
         
         //ManagerMovement();
-        ManagerRotation();
+        if( !_controlBlock) ManagerRotation();
         ManageCameraFow();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         ManageHover();
         ManagerStayUpWard();
-        print("Speed =" + _rb.linearVelocity.magnitude);
     }
 
     private void ManageHover() {
@@ -70,12 +86,18 @@ public class TankController : MonoBehaviour
         }
     }
 
-    private void ManagerWheel(Transform wheel, Vector2 inputmovement, bool isFrontWheel) {
+    private void ManagerWheel(Transform wheel, Vector2 inputmovement, bool isFrontWheel)
+    {
+        wheelGrounded = 0;
+        
         RaycastHit hit;
         if (Physics.Raycast(wheel.transform.position, -wheel.transform.up, out hit, _wheelRaycastDistance,
-                _groundMask)) {
+                _groundMask))
+        {
+            wheelGrounded++;
             Vector3 springDir = wheel.up;
             Vector3 tireWorldVel = _rb.GetPointVelocity(wheel.position);
+            Vector3 accelDir = wheel.forward;
             
             float carSpeed = Vector3.Dot(transform.forward, _rb.linearVelocity);
             float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed)/_tankTopSpeed);
@@ -93,28 +115,28 @@ public class TankController : MonoBehaviour
             if (isFrontWheel) gripFactor = _frontwheelGripFactor.Evaluate(normalizedSpeed);
             else gripFactor = _backwheelGripFactor.Evaluate(normalizedSpeed);
             
+            //Debug.DrawLine(wheel.position, wheel.position+steeringDir,  Color.red);
+            //Debug.DrawLine(wheel.position, wheel.position+tireWorldVel,  Color.blue);
+            //Debug.DrawLine(wheel.position, wheel.position+steeringVel*steeringDir,  Color.green);
+            
             float desiredVelChange = -steeringVel * gripFactor;
             float desiredAccel = desiredVelChange*Time.fixedDeltaTime;
             _rb.AddForceAtPosition(steeringDir*_wheelMass * desiredAccel, wheel.position);
+            
+            
                 
             
             //Accelration
-            Vector3 accelDir = wheel.forward;
-            if (inputmovement.y > 0)
-            {
-                
-                
+            if( _controlBlock)return;
+            if (inputmovement.y > 0) {
                 float availableAccelecration = _accelerationCurve.Evaluate(normalizedSpeed) * inputmovement.y*TankAccelleration;
                 _rb.AddForceAtPosition(accelDir * availableAccelecration, wheel.position);
             }
 
-            if (inputmovement.x < 0)
+            if (inputmovement.y < 0 )
             {
-                Vector3 brakeDir = wheel.forward;
-                float brakeVel = Vector3.Dot(brakeDir, tireWorldVel);
-                float desiredbrakeVelChange = -brakeVel * _wheelBrakePower;
-                float desiredBrakeAccel = desiredbrakeVelChange*Time.fixedDeltaTime;
-                _rb.AddForceAtPosition(brakeDir*_wheelMass * desiredBrakeAccel, wheel.position);
+                float availableAccelecration = _accelerationCurve.Evaluate(normalizedSpeed) * inputmovement.y*TankAccelleration;
+                _rb.AddForceAtPosition(accelDir * availableAccelecration, wheel.position);
             }
 
         }
@@ -144,17 +166,20 @@ public class TankController : MonoBehaviour
       // float vel = Vector3.Dot(Vector3.up, _rb.angularVelocity);
       // float force = (upwardPower*_upWardForce) - (vel*_upwardDamper);
       // _rb.AddTorque((ealer*force)*Time.fixedDeltaTime);
+      float groundedFactor = 1 - ((float)wheelGrounded / 4);
       Quaternion testqua = new Quaternion();
       testqua.SetFromToRotation(transform.up,  Vector3.up);
       testqua.ToAngleAxis(out float angle , out Vector3 axis);
-      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce);
+      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce*groundedFactor);
         
         
     }
 
-    private void ManageCameraFow()
-    {
+    private void ManageCameraFow() {
         float normalizeSpeed = _rb.linearVelocity.magnitude/20;
        _virtualCamera.Lens.FieldOfView = Mathf.Lerp(_baseFow, _speedFow, normalizeSpeed);
+    }
+    public void GiveBoost(float boostPower) {
+        _rb.AddForce(transform.forward * boostPower,  ForceMode.Impulse);
     }
 }
