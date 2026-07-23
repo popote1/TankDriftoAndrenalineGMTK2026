@@ -52,6 +52,7 @@ public class TankController : MonoBehaviour
 
     public float GetGurentFrontGrip { get => _frontwheelGripFactor.Evaluate(GetNormalizedSpeed); }
     public float GetGurentBackGrip { get => _backwheelGripFactor.Evaluate(GetNormalizedSpeed); }
+    public Vector3 GetLinearVelocity{get => _rb.linearVelocity;}
     public float DriftFactor;
     public float TurnDot;
 
