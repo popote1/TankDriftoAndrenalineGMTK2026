@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DotSize: 2.7
+    - _DotSize: 7.87
     - _DotsSaturation: 100
     - _MaxDotSize: 0.3
     - _MinDotSize: 0

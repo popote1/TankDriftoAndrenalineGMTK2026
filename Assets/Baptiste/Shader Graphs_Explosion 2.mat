@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_SG_TerrainShader
-  m_Shader: {fileID: -6465566751694194690, guid: be10e99c734b9ea448cca78de6298d7a, type: 3}
+  m_Name: Shader Graphs_Explosion 2
+  m_Shader: {fileID: -6465566751694194690, guid: 09fc2a0aa583acd448c871f05cc961dd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -24,6 +24,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 571e4986086fae64fbadaae9a5b9012b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_f7c31d3afd334a56877f6f4a73efea17_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -38,22 +46,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GradiantSize: 1
-    - _LerpAmount: 0.1
-    - _Max: 0.63
-    - _Metallic: 0
-    - _Min: 0.12
-    - _NormalStrength: 9.15
-    - _Power: 2.41
+    - _DisolveSlider1: 0.2
+    - _DisolveSlider2: 0.51
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0
+    - _SmoothStep: 0.33
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.7606493, b: 0, a: 1}
-    - _RockColor: {r: 0.8396226, g: 0.39234567, b: 0, a: 1}
+    - _DarkColor: {r: 0.9622642, g: 0.74870217, b: 0.33134568, a: 1}
+    - _LightColor: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2895428141398740434
+--- !u!114 &5547432777444789212
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

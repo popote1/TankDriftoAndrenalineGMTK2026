@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -28,27 +27,41 @@ public class TankController : MonoBehaviour
     [SerializeField] private float TankAccelleration = 1;
     [SerializeField] private AnimationCurve _accelerationCurve;
     [Header("Steering")] [SerializeField] private float _wheelMaxAngle = 45;
-    [SerializeField] private float _wheelBrakePower = 1;
+    
     [SerializeField] private float _upWardForce = 1;
-    [SerializeField] private float _upwardDamper = 1;
+    [SerializeField] private float _driftSpeedPresservation = 1;
+    [SerializeField] private AnimationCurve _driftSpeedPreservationCurve;
+    [Header("DriftFactor")]
+    
+    [SerializeField] private AnimationCurve _driftFactorSpeedCurve;
+    [SerializeField] private AnimationCurve _driftFactorDotCurve;
+    
     [SerializeField] private CinemachineCamera _virtualCamera;
     [SerializeField] private float _baseFow = 60f;
     [SerializeField] private float _speedFow = 70f;
     [SerializeField] private LayerMask _groundMask;
     //[SerializeField]private float _moveSpeed;
-    [SerializeField]private float _rotationSpeed;
+    //[SerializeField]private float _rotationSpeed;
     
     private InputAction _moveAction;
     private int wheelGrounded;
     [SerializeField] private bool _controlBlock;
-    void Start()
-    {
+    
+    public float GetCurrentSpeed{get => Vector3.Dot(transform.forward, _rb.linearVelocity);}
+    public float GetNormalizedSpeed{get => Mathf.Clamp01(Mathf.Abs(GetCurrentSpeed)/_tankTopSpeed);}
+
+    public float GetGurentFrontGrip { get => _frontwheelGripFactor.Evaluate(GetNormalizedSpeed); }
+    public float GetGurentBackGrip { get => _backwheelGripFactor.Evaluate(GetNormalizedSpeed); }
+    public Vector3 GetLinearVelocity{get => _rb.linearVelocity;}
+    public float GetGroundedFactor {get => (1-(float)wheelGrounded / 4);}
+    public float DriftFactor;
+    public float TurnDot;
+
+    void Start() {
         _rb = GetComponent<Rigidbody>();
         _moveAction = InputSystem.actions.FindAction("Move");
         StaticEvent.OnGameStart += InstanceOnOnGameStart;
         StaticEvent.OnBlockPlayerControl+= StaticEventOnOnBlockPlayerControl;
-        
-        
     }
 
     private void OnDestroy() {
@@ -68,12 +81,29 @@ public class TankController : MonoBehaviour
         
         //ManagerMovement();
         if( !_controlBlock) ManagerRotation();
+        CalculateDriftFactor();
         ManageCameraFow();
+        
     }
 
     private void FixedUpdate() {
         ManageHover();
         ManagerStayUpWard();
+    }
+
+    private void CalculateDriftFactor()
+    {
+        float dot = _driftFactorDotCurve.Evaluate(Vector3.Dot(transform.forward, _rb.linearVelocity.normalized));
+        float speed = _driftFactorSpeedCurve.Evaluate(_rb.linearVelocity.magnitude / _tankTopSpeed);
+        DriftFactor = dot * speed*GetGroundedFactor;
+
+        if (_rb.linearVelocity.magnitude > 1)
+        {
+            TurnDot = Vector3.Dot(transform.right, _rb.linearVelocity.normalized);
+        }
+        else {
+            TurnDot = 0;
+        }
     }
 
     private void ManageHover() {
@@ -122,8 +152,10 @@ public class TankController : MonoBehaviour
             float desiredVelChange = -steeringVel * gripFactor;
             float desiredAccel = desiredVelChange*Time.fixedDeltaTime;
             _rb.AddForceAtPosition(steeringDir*_wheelMass * desiredAccel, wheel.position);
-            
-            
+
+            float driftPreservationFactor =
+                _driftSpeedPreservationCurve.Evaluate(normalizedSpeed) * _driftSpeedPresservation;
+            _rb.AddForceAtPosition(accelDir * driftPreservationFactor * Mathf.Abs(desiredAccel), wheel.position);
                 
             
             //Accelration
@@ -166,11 +198,10 @@ public class TankController : MonoBehaviour
       // float vel = Vector3.Dot(Vector3.up, _rb.angularVelocity);
       // float force = (upwardPower*_upWardForce) - (vel*_upwardDamper);
       // _rb.AddTorque((ealer*force)*Time.fixedDeltaTime);
-      float groundedFactor = 1 - ((float)wheelGrounded / 4);
       Quaternion testqua = new Quaternion();
       testqua.SetFromToRotation(transform.up,  Vector3.up);
       testqua.ToAngleAxis(out float angle , out Vector3 axis);
-      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce*groundedFactor);
+      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce*GetGroundedFactor);
         
         
     }
