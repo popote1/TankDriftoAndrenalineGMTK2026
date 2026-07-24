@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 580105ba7c02e12468fd22cb49014ab3
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1488c12dbf974a349b40a2eea3b41343
+    m_Address: Assets/Shader/M_SG_PackablePlaneFinishLane.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4bb633268089b8d40ab190e1a79a3075, type: 2}
   m_SchemaSet:
