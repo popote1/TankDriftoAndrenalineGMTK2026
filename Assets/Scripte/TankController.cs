@@ -53,6 +53,7 @@ public class TankController : MonoBehaviour
     public float GetGurentFrontGrip { get => _frontwheelGripFactor.Evaluate(GetNormalizedSpeed); }
     public float GetGurentBackGrip { get => _backwheelGripFactor.Evaluate(GetNormalizedSpeed); }
     public Vector3 GetLinearVelocity{get => _rb.linearVelocity;}
+    public float GetGroundedFactor {get => (1-(float)wheelGrounded / 4);}
     public float DriftFactor;
     public float TurnDot;
 
@@ -94,7 +95,7 @@ public class TankController : MonoBehaviour
     {
         float dot = _driftFactorDotCurve.Evaluate(Vector3.Dot(transform.forward, _rb.linearVelocity.normalized));
         float speed = _driftFactorSpeedCurve.Evaluate(_rb.linearVelocity.magnitude / _tankTopSpeed);
-        DriftFactor = dot * speed;
+        DriftFactor = dot * speed*GetGroundedFactor;
 
         if (_rb.linearVelocity.magnitude > 1)
         {
@@ -197,11 +198,10 @@ public class TankController : MonoBehaviour
       // float vel = Vector3.Dot(Vector3.up, _rb.angularVelocity);
       // float force = (upwardPower*_upWardForce) - (vel*_upwardDamper);
       // _rb.AddTorque((ealer*force)*Time.fixedDeltaTime);
-      float groundedFactor = 1 - ((float)wheelGrounded / 4);
       Quaternion testqua = new Quaternion();
       testqua.SetFromToRotation(transform.up,  Vector3.up);
       testqua.ToAngleAxis(out float angle , out Vector3 axis);
-      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce*groundedFactor);
+      _rb.AddTorque((angle*Mathf.Deg2Rad)*axis*_upWardForce*GetGroundedFactor);
         
         
     }
