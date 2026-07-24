@@ -2,8 +2,10 @@
 
 public class CheckPointPad : MonoBehaviour
 {
+    public bool UsAsRespownPoint = true;
     [SerializeField] private bool _isDefaultSpawn;
     [SerializeField] private bool _checkPountTaken;
+    
     [SerializeField] private GameObject _VfxIdle;
     [SerializeField]private GameObject _prefabVFXOnDestroy;
     [SerializeField] private Vector3 _respawnPositionOffset = new Vector3(0,0.5f,0);

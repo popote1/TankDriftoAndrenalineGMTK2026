@@ -26,7 +26,7 @@ public static class StaticEvent
 
     public static void DoOnCheckPointPass(CheckPointPad pad) {
         CheckPointPass++;
-        _respawnPad = pad;
+        if( pad.UsAsRespownPoint) _respawnPad = pad;
         OnCheckPointPass?.Invoke(null, CheckPointPass);
     }
 
