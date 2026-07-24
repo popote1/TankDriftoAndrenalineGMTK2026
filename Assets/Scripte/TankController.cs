@@ -44,6 +44,7 @@ public class TankController : MonoBehaviour
     //[SerializeField]private float _rotationSpeed;
     
     private InputAction _moveAction;
+    private InputAction _respawnAction;
     private int wheelGrounded;
     [SerializeField] private bool _controlBlock;
     
@@ -60,13 +61,27 @@ public class TankController : MonoBehaviour
     void Start() {
         _rb = GetComponent<Rigidbody>();
         _moveAction = InputSystem.actions.FindAction("Move");
+        _respawnAction =  InputSystem.actions.FindAction("Respawn");
+        
         StaticEvent.OnGameStart += InstanceOnOnGameStart;
         StaticEvent.OnBlockPlayerControl+= StaticEventOnOnBlockPlayerControl;
+        _respawnAction.started += DoRespawn;
+    }
+
+    private void DoRespawn(InputAction.CallbackContext ctx) {
+        if (StaticEvent._respawnPad != null)
+        {
+            _rb.linearVelocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+            StaticEvent._respawnPad.RespawnPlayer(gameObject);
+            _rb.position = transform.position;
+        }
     }
 
     private void OnDestroy() {
         StaticEvent.OnGameStart -= InstanceOnOnGameStart;
         StaticEvent.OnBlockPlayerControl-= StaticEventOnOnBlockPlayerControl;
+        _respawnAction.started -= DoRespawn;
     }
 
     private void StaticEventOnOnBlockPlayerControl(object sender, bool e)=> _controlBlock = e;
