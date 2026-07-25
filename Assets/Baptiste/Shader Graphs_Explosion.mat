@@ -46,14 +46,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DisolveSlider1: 0.2
-    - _DisolveSlider2: 0.51
+    - _DisolveSlider1: 1.99
+    - _DisolveSlider2: 0.15
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SmoothStep: 0.33
+    - _SmoothStep: 2.64
     m_Colors:
     - _DarkColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 766.9962, g: 449.472, b: 0, a: 1}
+    - _LightColor: {r: 11.984316, g: 7.023, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2088885269251314224
