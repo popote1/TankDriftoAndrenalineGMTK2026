@@ -5,7 +5,7 @@ public static class StaticEvent
 
 
     public static int CheckPointPass;
-    public static CheckPointPad _respawnPad;
+    public static CheckPointPad RespawnPad;
     
     public static event EventHandler OnGameStart;
     public static event EventHandler<int> OnTimeChange;
@@ -13,6 +13,7 @@ public static class StaticEvent
     public static event EventHandler OnStageComplete;
     public static event EventHandler<bool> OnBlockPlayerControl;
     public static event EventHandler<int> OnCheckPointPass;
+    public static event EventHandler<string> OnLevelLoading;
 
     public static void DoOnGameStart() {
         OnGameStart?.Invoke(null, EventArgs.Empty);
@@ -26,12 +27,21 @@ public static class StaticEvent
 
     public static void DoOnCheckPointPass(CheckPointPad pad) {
         CheckPointPass++;
-        if( pad.UsAsRespownPoint) _respawnPad = pad;
+        if( pad.UsAsRespownPoint) RespawnPad = pad;
         OnCheckPointPass?.Invoke(null, CheckPointPass);
     }
 
     public static void SetDefaultSpawn(CheckPointPad pad) {
-        _respawnPad = pad;
+        RespawnPad = pad;
     }
+
+    public static void ResetStaticData()
+    {
+        CheckPointPass = 0;
+        RespawnPad = null;
+    }
+
+    public static void DoLevelLoading(string sceneName) => OnLevelLoading?.Invoke(null, sceneName);
+    
 }
 
