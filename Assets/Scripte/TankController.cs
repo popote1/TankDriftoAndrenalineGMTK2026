@@ -69,12 +69,14 @@ public class TankController : MonoBehaviour
     }
 
     private void DoRespawn(InputAction.CallbackContext ctx) {
-        if (StaticEvent._respawnPad != null)
+        if (StaticEvent.RespawnPad != null)
         {
             _rb.linearVelocity = Vector3.zero;
             _rb.angularVelocity = Vector3.zero;
-            StaticEvent._respawnPad.RespawnPlayer(gameObject);
+            StaticEvent.RespawnPad.RespawnPlayer(gameObject);
             _rb.position = transform.position;
+            _rb.rotation = transform.rotation;
+            _virtualCamera.PreviousStateIsValid = false;
         }
     }
 
