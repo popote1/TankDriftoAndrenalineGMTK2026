@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chenille_droite 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8354132426117851524, guid: a7bf5ecb4b0c6e448bd4889078c497f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -241,6 +245,14 @@ PrefabInstance:
     - target: {fileID: 628974249023520577, guid: a7bf5ecb4b0c6e448bd4889078c497f7, type: 3}
       propertyPath: m_Name
       value: chenille_droite 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354132426117851524, guid: a7bf5ecb4b0c6e448bd4889078c497f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354132426117851524, guid: a7bf5ecb4b0c6e448bd4889078c497f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
