@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -55,6 +56,4 @@ public class UIPanelOption : UIPanel
         _sliderMusicVolume.value = Mathf.Exp(musicValue / 20);
         _sliderAmbianceVolume.value = Mathf.Exp(ambianceValue / 20);
     }
-    
-    
 }

@@ -35,8 +35,8 @@ public class UIPanelStageSelection : UIPanel
     private void RemoveButtons() {
         for (int i = _buttons.Count - 1; i >= 0; i--) {
             _buttons[i].OnStageSelected -= BpOnOnStageSelected;
-            Destroy(_buttons[i].gameObject);
-            
+            Destroy(_buttons[i].gameObject,0.01f); 
+            _buttons.RemoveAt(i);
         }
     }
 
