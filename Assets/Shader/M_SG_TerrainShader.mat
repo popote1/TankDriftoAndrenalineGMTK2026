@@ -88,7 +88,7 @@ Material:
     m_Floats:
     - _EnableInstancedPerPixelNormal: 1
     - _GradiantSize: 1
-    - _GrassHeight: 52.7
+    - _GrassHeight: 42.3
     - _GrassHight: 10
     - _LerpAmount: 0.1
     - _Max: 0.63
@@ -107,7 +107,7 @@ Material:
     - _Smoothness1: 1
     - _Smoothness2: 1
     - _Smoothness3: 1
-    - _SnowHeight: 19.5
+    - _SnowHeight: 32.4
     m_Colors:
     - _BaseColor: {r: 1, g: 0.7606493, b: 0, a: 1}
     - _ColorGrass: {r: 0, g: 0.6132076, b: 0.004919925, a: 1}
