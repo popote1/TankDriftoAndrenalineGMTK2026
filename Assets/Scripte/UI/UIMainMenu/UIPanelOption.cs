@@ -33,23 +33,23 @@ public class UIPanelOption : UIPanel
     }
 
     private void UIChangeMasterVolume(float value) {
-        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("VolumeMaster", Mathf.Log10(value) * 20);
     }
     private void UIChangeMusicVolume(float value) {
-        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("VolumeMusic", Mathf.Log10(value) * 20);
     }
     private void UIChangeSFXVolume(float value) {
-        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("VolumeSFX", Mathf.Log10(value) * 20);
     }
     private void UIChangeAmbianceVolume(float value) {
-        _audioMixer.SetFloat("AmbianceVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("VolumeAmbiance", Mathf.Log10(value) * 20);
     }
     
     private void SetUpVolumes() {
-        _audioMixer.GetFloat("MasterVolume",out float masterValue);
-        _audioMixer.GetFloat("MusicVolume",out float musicValue);
-        _audioMixer.GetFloat("AmbianceVolume",out float ambianceValue);
-        _audioMixer.GetFloat("SFXVolume",out float sfxValue);
+        _audioMixer.GetFloat("VolumeMaster",out float masterValue);
+        _audioMixer.GetFloat("VolumeMusic",out float musicValue);
+        _audioMixer.GetFloat("VolumeAmbiance",out float ambianceValue);
+        _audioMixer.GetFloat("VolumeSFX",out float sfxValue);
         _sliderMasteVolume.value = Mathf.Exp(masterValue / 20);
         _sliderSFXVolume.value = Mathf.Exp(sfxValue / 20);
         _sliderMusicVolume.value = Mathf.Exp(musicValue / 20);

@@ -38,22 +38,29 @@ public class StageData {
     }
 
     public void SetNewTime(int newtime) {
-        if (!BronzeMedal && newtime < SoStageData.BronzeTime) {
+        if (UnlockBronzeMedal(newtime))  {
             BronzeMedal = true;
             GameStateData.GainMadal();
         }
-        if (!SilverMedal && newtime < SoStageData.SilverTime) {
+        if (UnlockSilverMedal(newtime))  {
             SilverMedal = true;
             GameStateData.GainMadal();
         }
-        if (!GoldMedal && newtime < SoStageData.GoldTime) {
+        if (UnlockGoldMedal(newtime))  {
             GoldMedal = true;
             GameStateData.GainMadal();
         }
-        if (!CreatorMedal && newtime < SoStageData.CreatorTime) {
+        if (UnlockCreatorMedal(newtime)) {
             CreatorMedal = true;
             GameStateData.GainMadal();
         }
         if( newtime< BestTime) BestTime = newtime;
     }
+
+    public bool UnlockCreatorMedal(int time) => !CreatorMedal && time < SoStageData.CreatorTime;
+    public bool UnlockGoldMedal(int time) => !GoldMedal && time < SoStageData.GoldTime;
+    public bool UnlockSilverMedal(int time) => !SilverMedal && time < SoStageData.SilverTime;
+    public bool UnlockBronzeMedal(int time) => !BronzeMedal && time < SoStageData.BronzeTime;
+    public bool IsNewBestTime(int time) => BestTime > time; 
+
 }

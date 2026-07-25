@@ -12,8 +12,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private bool _countDownOnGoing = true;
     [SerializeField]private float _currentTime;
     [SerializeField]private int _currentSec;
-    
+    [SerializeField] private float _runTime=0;
 
+    public float RunTime => _runTime;
+    public float LeftTime => _currentTime;
     private void Awake() {
         Instance = this;
     }
@@ -38,6 +40,7 @@ public class TimeManager : MonoBehaviour
 
     private void Update() {
         if (!_countDownOnGoing) return;
+        _runTime += Time.deltaTime;
         _currentTime-= Time.deltaTime;
         if (_currentTime <= 0)
         {
