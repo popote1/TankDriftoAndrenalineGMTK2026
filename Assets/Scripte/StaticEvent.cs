@@ -19,6 +19,7 @@ public static class StaticEvent
     public static event EventHandler OnAskForNextSong;
     public static event EventHandler<float> OnChangeTankNormalizeSpeed;
     public static event EventHandler<float> OnChangeTankDriftFactor;
+    public static event EventHandler<float> OnChangeTankGroundFactor;
 
     public static void DoOnGameStart() {
         OnGameStart?.Invoke(null, EventArgs.Empty);
@@ -33,6 +34,7 @@ public static class StaticEvent
     public static void DoOnAskForNextSong() => OnAskForNextSong?.Invoke(null, EventArgs.Empty);
     public static void DoOnChangeTankNormalizeSpeed(float value) => OnChangeTankNormalizeSpeed?.Invoke(null, value);
     public static void DoOnChangeTankDriftFactor(float value) => OnChangeTankDriftFactor?.Invoke(null, value);
+    public static void DoOnChangeTankGroundFactor(float value) => OnChangeTankGroundFactor?.Invoke(null, value);
     public static void DoOnTimeChangeMilSec(int value) => OnTimeChangeMilSec?.Invoke(null, value);
 
     public static void DoOnCheckPointPass(CheckPointPad pad) {

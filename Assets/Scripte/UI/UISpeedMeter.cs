@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,5 @@ public class UISpeedMeter : MonoBehaviour
         _imgAiguille.transform.eulerAngles = new Vector3(0, 0, Mathf.Lerp(_minRoration, _maxRoration, e));
         _txtSpeed.text = Mathf.FloorToInt(e * _speedValueMultiplyer).ToString();
     }
-
-        
+    
 }
