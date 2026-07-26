@@ -300,6 +300,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIGameOver
       objectReference: {fileID: 0}
+    - target: {fileID: 3492807454653005583, guid: 34e4fedafd12def43bf6619bf868dd95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455349247186611998, guid: 34e4fedafd12def43bf6619bf868dd95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

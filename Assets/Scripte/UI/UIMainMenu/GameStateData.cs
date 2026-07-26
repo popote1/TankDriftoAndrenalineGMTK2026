@@ -9,9 +9,13 @@ public static class GameStateData
     
     public static event EventHandler<int> OnMedalCountChange;
     public static event EventHandler<string> OnCodeSubmition;
+    
     public static int MedalScore;
     public static StageData[] _stageDatas;
     public static StageData CurrentLevelSelected;
+    // Options
+    public static bool PlayMusicInRandom;
+    public static bool PlayMusicOnSceneLoad=true;
 
     public static void GainMadal() {
         MedalScore++;

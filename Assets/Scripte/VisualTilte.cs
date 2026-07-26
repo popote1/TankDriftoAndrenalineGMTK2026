@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class VisualTilte : MonoBehaviour
 {
@@ -15,6 +16,5 @@ public class VisualTilte : MonoBehaviour
         Vector3 dir = Vector3.Lerp(transform.forward, _tankController.GetLinearVelocity.normalized,
             _tankController.DriftFactor);
         turret.forward = dir;
-        
     }
 }

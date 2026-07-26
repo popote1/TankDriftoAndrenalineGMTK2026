@@ -11,7 +11,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float _initialTime =10;
     [SerializeField] private bool _countDownOnGoing = true;
     [SerializeField]private float _currentTime;
+    
     [SerializeField]private int _currentSec;
+    [SerializeField]private int _currentMilSec;
     [SerializeField] private float _runTime=0;
 
     public float RunTime => _runTime;
@@ -49,10 +51,15 @@ public class TimeManager : MonoBehaviour
             _countDownOnGoing = false;
             return;
         }
-        if (_currentSec != Mathf.FloorToInt(_currentTime))
-        {
+        if (_currentSec != Mathf.FloorToInt(_currentTime)) {
             _currentSec = Mathf.FloorToInt(_currentTime);
             StaticEvent.DoOnTimeChange(_currentSec);
+        }
+
+        if (_currentMilSec != Mathf.FloorToInt(_runTime * 100))
+        {
+            _currentMilSec = Mathf.FloorToInt(_runTime* 100);
+            StaticEvent.DoOnTimeChangeMilSec(_currentMilSec);
         }
     }
 

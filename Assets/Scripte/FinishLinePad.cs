@@ -9,6 +9,9 @@ public class FinishLinePad : MonoBehaviour
     [SerializeField] private GameObject _idleVFXLock;
     [SerializeField] private GameObject _idleVFXopen;
     [SerializeField]private GameObject _prefabVFXOnDestroy;
+    [Space(5)]
+    [SerializeField] private AudioElement _sfxOnTake;
+    [SerializeField] private AudioElement _sfxOnCanTake;
 
     private bool _passed = false;
     private void Start() {
@@ -39,6 +42,14 @@ public class FinishLinePad : MonoBehaviour
                 _idleVFXopen.SetActive(false);
                 _passed = true;
                 if (_destroyOnEnter) Destroy(gameObject);
+                if (_sfxOnTake != null && AudioManager.Instance != null) {
+                    AudioManager.Instance.PlaySFX(_sfxOnTake);
+                }
+            }
+            else {
+                if (_sfxOnTake != null && AudioManager.Instance != null) {
+                    AudioManager.Instance.PlaySFX(_sfxOnCanTake);
+                }
             }
         }
     }

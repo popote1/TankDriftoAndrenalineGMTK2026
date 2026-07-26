@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class UIPanelStageSelection : UIPanel
     [SerializeField] private UIPanelStageDetail _panelStageDetail;
     [SerializeField] private BpStage _prfStageButton;
     [SerializeField] private Transform _transformButtonHolder;
+    [SerializeField] private TMP_Text _txtMedalCount; 
     [SerializeField] private Button _bpReturn;
     private List<BpStage> _buttons =new List<BpStage>();
     
@@ -52,6 +54,7 @@ public class UIPanelStageSelection : UIPanel
 
     public override void OpenPanel() {
         SetUpButtons();
+        _txtMedalCount.text = GameStateData.MedalScore.ToString();
         base.OpenPanel();
         if (_buttons == null || _buttons[0] == null) _bpReturn.Select();
         else _buttons[0].Select();

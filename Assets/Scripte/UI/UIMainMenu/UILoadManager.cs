@@ -25,6 +25,7 @@ public class UILoadManager  : MonoBehaviour {
     private void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1) {
         _canvasGroup.DOFade(0, _animationTime);
         EventSystem.current.enabled = true;
+        if( GameStateData.PlayMusicOnSceneLoad) StaticEvent.DoOnAskForNextSong();
     }
 
     private void StaticEventOnOnLevelLoading(object sender, string e) {

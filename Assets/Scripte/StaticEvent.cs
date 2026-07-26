@@ -9,11 +9,16 @@ public static class StaticEvent
     
     public static event EventHandler OnGameStart;
     public static event EventHandler<int> OnTimeChange;
+    public static event EventHandler<int> OnTimeChangeMilSec;
     public static event EventHandler OnGameOver;
     public static event EventHandler OnStageComplete;
     public static event EventHandler<bool> OnBlockPlayerControl;
     public static event EventHandler<int> OnCheckPointPass;
     public static event EventHandler<string> OnLevelLoading;
+    public static event EventHandler<SoMusic> OnSoMusicChange;
+    public static event EventHandler OnAskForNextSong;
+    public static event EventHandler<float> OnChangeTankNormalizeSpeed;
+    public static event EventHandler<float> OnChangeTankDriftFactor;
 
     public static void DoOnGameStart() {
         OnGameStart?.Invoke(null, EventArgs.Empty);
@@ -24,6 +29,11 @@ public static class StaticEvent
     public static void DoOnGameOver() => OnGameOver?.Invoke(null, EventArgs.Empty);
     public static void DoOnBlockPlayerControl(bool value) => OnBlockPlayerControl?.Invoke(null, value);
     public static void DoOnStageComplete() => OnStageComplete?.Invoke(null, EventArgs.Empty);
+    public static void DoOnSoMusicChange(SoMusic value) => OnSoMusicChange?.Invoke(null, value);
+    public static void DoOnAskForNextSong() => OnAskForNextSong?.Invoke(null, EventArgs.Empty);
+    public static void DoOnChangeTankNormalizeSpeed(float value) => OnChangeTankNormalizeSpeed?.Invoke(null, value);
+    public static void DoOnChangeTankDriftFactor(float value) => OnChangeTankDriftFactor?.Invoke(null, value);
+    public static void DoOnTimeChangeMilSec(int value) => OnTimeChangeMilSec?.Invoke(null, value);
 
     public static void DoOnCheckPointPass(CheckPointPad pad) {
         CheckPointPass++;
@@ -42,6 +52,4 @@ public static class StaticEvent
     }
 
     public static void DoLevelLoading(string sceneName) => OnLevelLoading?.Invoke(null, sceneName);
-    
 }
-

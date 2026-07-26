@@ -100,6 +100,8 @@ public class TankController : MonoBehaviour
         if( !_controlBlock) ManagerRotation();
         CalculateDriftFactor();
         ManageCameraFow();
+        StaticEvent.DoOnChangeTankNormalizeSpeed(GetNormalizedSpeed);
+        StaticEvent.DoOnChangeTankDriftFactor(DriftFactor);
         
     }
 

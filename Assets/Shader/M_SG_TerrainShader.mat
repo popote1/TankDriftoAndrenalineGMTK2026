@@ -98,7 +98,7 @@ Material:
     - _Metallic2: 0
     - _Metallic3: 0
     - _Min: 0.12
-    - _NormalStrength: 9.15
+    - _NormalStrength: 1
     - _Power: 2.41
     - _QueueControl: 0
     - _QueueOffset: 0
