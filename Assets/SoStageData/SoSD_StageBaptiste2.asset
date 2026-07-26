@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoSD_StageBaptiste2
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
   StageName: Stage_Baptiste2
-  SceneName: level_Baptiste
+  SceneName: level_B2
   CreatorTime: 0
   GoldTime: 0
   SilverTime: 0
