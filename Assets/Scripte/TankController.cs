@@ -108,6 +108,7 @@ public class TankController : MonoBehaviour
         CheckIfInUnderMap();
         StaticEvent.DoOnChangeTankNormalizeSpeed(GetNormalizedSpeed);
         StaticEvent.DoOnChangeTankDriftFactor(DriftFactor);
+        StaticEvent.DoOnChangeTankGroundFactor(GetGroundedFactor);
         
     }
 
