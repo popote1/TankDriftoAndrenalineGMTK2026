@@ -2188,7 +2188,7 @@
     "m_ShaderOutputName": "Power",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 0.5,
+    "m_Value": 1.0,
     "m_DefaultValue": 1.0,
     "m_Labels": [],
     "m_LiteralMode": false
@@ -3678,7 +3678,7 @@
     "m_ShaderOutputName": "Power",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 1.0,
+    "m_Value": 0.8999999761581421,
     "m_DefaultValue": 1.0,
     "m_Labels": [],
     "m_LiteralMode": false
