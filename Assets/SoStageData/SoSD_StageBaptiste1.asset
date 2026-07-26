@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SoSD_StageBaptiste1
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
   StageName: Sateg_Baptiste1
-  SceneName: level_Baptiste
-  CreatorTime: 0
-  GoldTime: 0
-  SilverTime: 0
-  BronzeTime: 0
+  SceneName: level_B1
+  CreatorTime: 79
+  GoldTime: 85
+  SilverTime: 95
+  BronzeTime: 105
   Sprite: {fileID: 0}
   UnlockCode: 
   MedalScoreToUnlock: 0
