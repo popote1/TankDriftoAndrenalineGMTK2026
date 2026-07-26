@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
   StageName: Stage 1
   SceneName: Stage1
-  CreatorTime: 90
-  GoldTime: 110
-  SilverTime: 130
-  BronzeTime: 150
+  CreatorTime: 77
+  GoldTime: 85
+  SilverTime: 100
+  BronzeTime: 120
   Sprite: {fileID: 0}
   UnlockCode: 
   MedalScoreToUnlock: 1
