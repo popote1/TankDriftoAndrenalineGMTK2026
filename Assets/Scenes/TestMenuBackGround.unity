@@ -4544,9 +4544,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayListManager
   _soMusics:
+  - {fileID: 11400000, guid: 46d1dc77028285a458206e86bfd2bb6f, type: 2}
+  - {fileID: 11400000, guid: c9233b0f5cea2c94d98e609fe035f122, type: 2}
+  - {fileID: 11400000, guid: a621729d0c76c6844a2756e2c89dffef, type: 2}
+  - {fileID: 11400000, guid: c4d9c8d6b6cb8f34480a2bd703b9c00a, type: 2}
+  - {fileID: 11400000, guid: f7ddd5cb1c1a0054387c7eb70cfc0696, type: 2}
+  - {fileID: 11400000, guid: 2db1fde14014ffa429a27db68919dd19, type: 2}
+  - {fileID: 11400000, guid: e6dc9e2cb0b58a34281002ac67573330, type: 2}
   - {fileID: 11400000, guid: cbb3b475bb2655e42ab12fceefacad37, type: 2}
   - {fileID: 11400000, guid: eaf296a2e459dc1408434d1e1e17c17f, type: 2}
   - {fileID: 11400000, guid: b32555e579f439e42a82d6aa8a904a07, type: 2}
+  - {fileID: 11400000, guid: b082856e37651784bb9793a64e0703cc, type: 2}
   _audioManager: {fileID: 4260085818159585884}
   _startMusicId: 0
 --- !u!81 &4260085818159585887

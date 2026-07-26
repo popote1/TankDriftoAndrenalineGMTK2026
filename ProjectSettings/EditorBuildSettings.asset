@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage1_2Temp.unity
     guid: 8c17ef806c69e4647ac8bf9aa3afd9b3
   - enabled: 1
-    path: Assets/Scenes/level_Baptiste.unity
+    path: Assets/Scenes/level_B1.unity
     guid: 9b99cf2686ae22e42acdd1453907d9f0
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
