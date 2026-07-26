@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c61713e8ff74f83a5c8a0bd93f416b8, type: 3}
   m_Name: SoSD_Stage3_Anais
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
-  StageName: Stage Uber Mountain
+  StageName: Ze  Uber Mountain
   SceneName: Stage3
-  CreatorTime: 0
-  GoldTime: 0
-  SilverTime: 0
-  BronzeTime: 0
+  CreatorTime: 36
+  GoldTime: 40
+  SilverTime: 45
+  BronzeTime: 50
   Sprite: {fileID: 0}
   UnlockCode: 
   MedalScoreToUnlock: 0
