@@ -128,6 +128,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoostPad
   _boostPower: 7
   _prefabVFXOnDestroy: {fileID: 3934540625974810801, guid: 2ee523d958a921545a34ebfacf373ccb, type: 3}
+  _sfxOnTake:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: 63f91e4e36f7d9246abce48516401265, type: 3}
 --- !u!1001 &7436993292634108748
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 5498416117097770003}
   - component: {fileID: 2945841041735080875}
   m_Layer: 5
-  m_Name: Level_Selected_Panel
+  m_Name: Level_Detail_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

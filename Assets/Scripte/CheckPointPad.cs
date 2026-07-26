@@ -9,6 +9,11 @@ public class CheckPointPad : MonoBehaviour
     [SerializeField] private GameObject _VfxIdle;
     [SerializeField]private GameObject _prefabVFXOnDestroy;
     [SerializeField] private Vector3 _respawnPositionOffset = new Vector3(0,0.5f,0);
+    
+    [SerializeField] private Vector3 _respawnRotationOffset = new Vector3(0,0,0);
+    [SerializeField] private AudioElement _sfxOnTake;
+    [SerializeField] private AudioElement _sfxOnRespawn;
+    
     private Vector3 _savePosition;
     private Quaternion _saveRotation;
 
@@ -26,18 +31,25 @@ public class CheckPointPad : MonoBehaviour
         if (_checkPountTaken) return;
         if (other.tag == "Player") {
             _checkPountTaken = true;
-            _savePosition = other.transform.position;
-            _saveRotation = other.transform.rotation;
+            //_savePosition = other.transform.position;
+            //_saveRotation = other.transform.rotation;
             Vector3 forward =other.transform.forward;
             GameObject VFX =Instantiate(_prefabVFXOnDestroy, other.transform.position, transform.rotation);
             VFX.transform.forward = forward;
             _VfxIdle.SetActive(false);
             StaticEvent.DoOnCheckPointPass(this);
+            
+            if (_sfxOnTake != null && AudioManager.Instance != null) {
+                AudioManager.Instance.PlaySFX(_sfxOnTake);
+            }
         }
     }
 
     public void RespawnPlayer(GameObject player) {
         player.transform.position = _savePosition+_respawnPositionOffset;
         player.transform.rotation = _saveRotation;
+        if (_sfxOnTake != null && AudioManager.Instance != null) {
+            AudioManager.Instance.PlaySFX(_sfxOnRespawn);
+        }
     }
 }
