@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8700277587773320554}
   - component: {fileID: 633081060696755265}
+  - component: {fileID: 8567841090992885015}
   m_Layer: 5
   m_Name: MMPanelQuite
   m_TagString: Untagged
@@ -50,8 +51,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPanelQuit
   UIVisualPanel: {fileID: 5490029150822423229}
+  UIPanelFeedBack: {fileID: 8567841090992885015}
   _bpQuit: {fileID: 3542259312661760118}
   _bpReturn: {fileID: 875612856817809494}
+--- !u!114 &8567841090992885015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595570901402065134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0cc8f59bfd482e872d0e8296d61446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPanelMaineMenuFeedBack
+  _targetPanel: {fileID: 5490029150822423229}
+  _aniamtionTime: 0.3
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.6426725
+      outSlope: 5.6426725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0733756
+    - serializedVersion: 3
+      time: 0.3851934
+      value: 1.0512183
+      inSlope: -1.3546095
+      outSlope: -1.3546095
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.12765095
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.3621357
+      outSlope: -0.3621357
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.124780715
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _closeValue: 180
+  _openValue: 0
 --- !u!1 &3949027451463748860
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2087806681999494983
 RectTransform:
   m_ObjectHideFlags: 0

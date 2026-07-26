@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7844919303028706227
 RectTransform:
   m_ObjectHideFlags: 0
@@ -321,6 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5537142079460843995}
   - component: {fileID: 3497578503204837835}
+  - component: {fileID: 5527987745766033427}
   m_Layer: 5
   m_Name: MMPanelLevelSelection
   m_TagString: Untagged
@@ -361,10 +362,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPanelStageSelection
   UIVisualPanel: {fileID: 5169196482203610855}
+  UIPanelFeedBack: {fileID: 5527987745766033427}
   _panelStageDetail: {fileID: 0}
   _prfStageButton: {fileID: 6215332887608499569, guid: e00fe7001dbbeca4e8be28e05f67cbc5, type: 3}
   _transformButtonHolder: {fileID: 7575025216357286587}
+  _txtMedalCount: {fileID: 1216667147774810032}
   _bpReturn: {fileID: 5042390987106293441}
+--- !u!114 &5527987745766033427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858483580033935263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0cc8f59bfd482e872d0e8296d61446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPanelMaineMenuFeedBack
+  _targetPanel: {fileID: 5169196482203610855}
+  _aniamtionTime: 0.3
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.6426725
+      outSlope: 5.6426725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0733756
+    - serializedVersion: 3
+      time: 0.3851934
+      value: 1.0512183
+      inSlope: -1.3546095
+      outSlope: -1.3546095
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.12765095
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.3621357
+      outSlope: -0.3621357
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.124780715
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _closeValue: 180
+  _openValue: 0
 --- !u!1 &8149727734498070417
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +616,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d8cba24ed110b241a7571425b3f9a58, type: 3}
+--- !u!114 &1216667147774810032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4153058696811414879, guid: 3d8cba24ed110b241a7571425b3f9a58, type: 3}
+  m_PrefabInstance: {fileID: 2972614015828349679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &9046846965294930660 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6110263000624678923, guid: 3d8cba24ed110b241a7571425b3f9a58, type: 3}

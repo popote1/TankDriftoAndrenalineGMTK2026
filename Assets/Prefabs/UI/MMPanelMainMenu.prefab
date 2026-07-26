@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051290536155344729}
   - component: {fileID: 708345911650332201}
+  - component: {fileID: 2959161656529925587}
   m_Layer: 5
   m_Name: MMPanelMainMenu
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPanelMainMenu
   UIVisualPanel: {fileID: 3133586059644066810}
+  UIPanelFeedBack: {fileID: 2959161656529925587}
   _bpStageSelection: {fileID: 8224656928072335728}
   _bpOptions: {fileID: 1184221205295329135}
   _bpCredits: {fileID: 8653159072173517927}
@@ -164,6 +166,55 @@ MonoBehaviour:
   _panelOptions: {fileID: 0}
   _panelCredits: {fileID: 0}
   _panelQuite: {fileID: 0}
+--- !u!114 &2959161656529925587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879011269411780793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0cc8f59bfd482e872d0e8296d61446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPanelMaineMenuFeedBack
+  _targetPanel: {fileID: 3133586059644066810}
+  _aniamtionTime: 0.3
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.6426725
+      outSlope: 5.6426725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0733756
+    - serializedVersion: 3
+      time: 0.3851934
+      value: 1.0512183
+      inSlope: -1.3546095
+      outSlope: -1.3546095
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.12765095
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.3621357
+      outSlope: -0.3621357
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.124780715
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _closeValue: 180
+  _openValue: 0
 --- !u!1001 &829210740044722448
 PrefabInstance:
   m_ObjectHideFlags: 0
