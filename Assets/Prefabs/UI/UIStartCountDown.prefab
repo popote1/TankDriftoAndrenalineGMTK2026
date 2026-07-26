@@ -143,6 +143,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _finalTweenTime: 2
+  _aeCoundDown:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: 326421889ec9b9a4aba5ec611092e611, type: 3}
+  _aeGo:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: 3e3eb6d5529c9254b88b8e18f73491b7, type: 3}
   _doCoundDown: 1
 --- !u!1 &7998961207437781495
 GameObject:

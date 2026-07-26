@@ -46,7 +46,7 @@ public class NotPauseMenu : MonoBehaviour
         _sliderMusicVolume.onValueChanged.AddListener(UIChangeMusicVolume);
         _sliderSFXVolume.onValueChanged.AddListener(UIChangeSFXVolume);
         _sliderAmbianceVolume.onValueChanged.AddListener(UIChangeAmbianceVolume);
-        
+        SetUpVolumes();
         _bpReturn.onClick.AddListener(ClosePanel);
         _bpInGameMenu.onClick.AddListener(PressButtonMenu);
         _bpRestart.onClick.AddListener(UIOnRestart);
@@ -73,10 +73,10 @@ public class NotPauseMenu : MonoBehaviour
         _audioMixer.GetFloat("VolumeMusic",out float musicValue);
         _audioMixer.GetFloat("VolumeAmbiance",out float ambianceValue);
         _audioMixer.GetFloat("VolumeSFX",out float sfxValue);
-        _sliderMasteVolume.value = Mathf.Exp(masterValue / 20);
-        _sliderSFXVolume.value = Mathf.Exp(sfxValue / 20);
-        _sliderMusicVolume.value = Mathf.Exp(musicValue / 20);
-        _sliderAmbianceVolume.value = Mathf.Exp(ambianceValue / 20);
+        _sliderMasteVolume.SetValueWithoutNotify(  Mathf.Exp(masterValue / 20));
+        _sliderSFXVolume.SetValueWithoutNotify(  Mathf.Exp(sfxValue / 20));
+        _sliderMusicVolume.SetValueWithoutNotify(  Mathf.Exp(musicValue / 20));
+        _sliderAmbianceVolume.SetValueWithoutNotify(  Mathf.Exp(ambianceValue / 20));
     }
     
     public void SetUpStageData(StageData stageData) {

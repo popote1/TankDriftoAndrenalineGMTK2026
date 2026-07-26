@@ -69,6 +69,11 @@ public class TankController : MonoBehaviour
     }
 
     private void DoRespawn(InputAction.CallbackContext ctx) {
+       Respawn();
+    }
+
+    private void Respawn()
+    {
         if (StaticEvent.RespawnPad != null)
         {
             _rb.linearVelocity = Vector3.zero;
@@ -100,6 +105,7 @@ public class TankController : MonoBehaviour
         if( !_controlBlock) ManagerRotation();
         CalculateDriftFactor();
         ManageCameraFow();
+        CheckIfInUnderMap();
         StaticEvent.DoOnChangeTankNormalizeSpeed(GetNormalizedSpeed);
         StaticEvent.DoOnChangeTankDriftFactor(DriftFactor);
         
@@ -231,5 +237,10 @@ public class TankController : MonoBehaviour
     }
     public void GiveBoost(float boostPower) {
         _rb.AddForce(transform.forward * boostPower,  ForceMode.Impulse);
+    }
+
+    public void CheckIfInUnderMap()
+    {
+        if(transform.position.y < -10) Respawn();
     }
 }

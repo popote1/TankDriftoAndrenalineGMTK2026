@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class UIGameOverPanel: MonoBehaviour
 {
     [SerializeField] private Button _bpRestart;
-    [SerializeField] private Button _bpFreeRoom;
+    [SerializeField] private Button _bpMainMenu;
     [SerializeField] private Transform _panel;
 
     private void Start() {
         StaticEvent.OnGameOver += StaticEventOnOnGameOver;
         _bpRestart.onClick.AddListener(UIOnRestart);
-        _bpFreeRoom.onClick.AddListener(UIOnFreeRoom);
+        _bpMainMenu.onClick.AddListener(UIOnFreeRoom);
         _panel.gameObject.SetActive(false);
     }
 
@@ -29,6 +29,7 @@ public class UIGameOverPanel: MonoBehaviour
     }
 
     private void UIOnFreeRoom() {
+        GameStateData.ReturnToMainMenu();
         StaticEvent.DoOnBlockPlayerControl(false);
         _panel.gameObject.SetActive(false);
     }

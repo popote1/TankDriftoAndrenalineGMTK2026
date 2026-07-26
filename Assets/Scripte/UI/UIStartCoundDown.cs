@@ -11,6 +11,8 @@ public class UIStartCoundDown : MonoBehaviour {
     [SerializeField] private float _animSize = 1.3f;
     [SerializeField] private AnimationCurve _finalTweenCurve;
     [SerializeField] private float _finalTweenTime = 2f;
+    [SerializeField] private AudioElement _aeCoundDown;
+    [SerializeField] private AudioElement _aeGo;
 
     private float _currentTime = 0;
     private int _currentSec = 0;
@@ -29,12 +31,14 @@ public class UIStartCoundDown : MonoBehaviour {
             _doCoundDown= false;
             TimeManager.Instance.StartGame();
             DisplayTime("GO!");
+            if (AudioManager.Instance!=null)AudioManager.Instance.PlaySFX(_aeGo);
             _canvasGroup.DOFade(0, _finalTweenTime).SetEase(_finalTweenCurve);
             return;
         }
         if (Mathf.FloorToInt(_currentTime) != _currentSec) {
             _currentSec = Mathf.FloorToInt(_currentTime);
             DisplayTime((_currentSec+1).ToString());
+            if (AudioManager.Instance!=null)AudioManager.Instance.PlaySFX(_aeCoundDown);
         }
     }
 

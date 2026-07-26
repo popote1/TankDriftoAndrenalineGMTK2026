@@ -31,8 +31,8 @@ public class CheckPointPad : MonoBehaviour
         if (_checkPountTaken) return;
         if (other.tag == "Player") {
             _checkPountTaken = true;
-            //_savePosition = other.transform.position;
-            //_saveRotation = other.transform.rotation;
+            _savePosition = transform.position;
+            _saveRotation = other.transform.rotation;
             Vector3 forward =other.transform.forward;
             GameObject VFX =Instantiate(_prefabVFXOnDestroy, other.transform.position, transform.rotation);
             VFX.transform.forward = forward;
