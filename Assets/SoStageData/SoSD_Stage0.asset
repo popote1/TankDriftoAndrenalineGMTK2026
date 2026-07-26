@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c61713e8ff74f83a5c8a0bd93f416b8, type: 3}
   m_Name: SoSD_Stage0
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
-  StageName: Stage 0
+  StageName: ze arena
   SceneName: Stage0Test
   CreatorTime: 52
   GoldTime: 60
