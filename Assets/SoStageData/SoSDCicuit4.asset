@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c61713e8ff74f83a5c8a0bd93f416b8, type: 3}
-  m_Name: SoSD_Stage1
+  m_Name: SoSDCicuit4
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
-  StageName: Ze Demancia
-  SceneName: Stage1
-  CreatorTime: 77
-  GoldTime: 85
-  SilverTime: 100
-  BronzeTime: 120
+  StageName: Ze Drift Paradise
+  SceneName: Stage4
+  CreatorTime: 30
+  GoldTime: 32
+  SilverTime: 36
+  BronzeTime: 40
   Sprite: {fileID: 0}
   UnlockCode: 
-  MedalScoreToUnlock: 12
+  MedalScoreToUnlock: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SoSD_Stage1 1
   m_EditorClassIdentifier: Assembly-CSharp::SoStageData
   StageName: Ze Cassoulet
-  SceneName: Stage1_2Temp
+  SceneName: Stage2
   CreatorTime: 62
   GoldTime: 70
   SilverTime: 75
   BronzeTime: 80
   Sprite: {fileID: 0}
   UnlockCode: 3
-  MedalScoreToUnlock: 3
+  MedalScoreToUnlock: 15

@@ -20,4 +20,4 @@ MonoBehaviour:
   BronzeTime: 100
   Sprite: {fileID: 0}
   UnlockCode: 
-  MedalScoreToUnlock: 0
+  MedalScoreToUnlock: 1
