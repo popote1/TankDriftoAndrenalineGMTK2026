@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c5b76532b74dc4ba3c4c1699720bca, type: 3}
+  m_Name: Laser_Pointer
+  m_EditorClassIdentifier: Assembly-CSharp::SoMusic
+  Song:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: 174d18f692748fb43b402cb67c72fe51, type: 3}
+  SongName: Laser_Pointer
+  ComposeurName: 
