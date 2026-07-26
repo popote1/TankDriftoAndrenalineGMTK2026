@@ -57,7 +57,7 @@ public class UIPanelStageDetail : UIPanel
         _CheckSilverMedal.SetActive(stageData.SilverMedal);
         _CheckBronzeMedal.SetActive(stageData.BronzeMedal);
 
-        if (stageData.BestTime < int.MinValue)
+        if (stageData.BestTime < int.MaxValue)
             _txtBestTime.text = GameStateData.GetStingTime(stageData.BestTime);
         else
             _txtBestTime.text = "...";

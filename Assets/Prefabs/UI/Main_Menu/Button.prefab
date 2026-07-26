@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 382400255797508118}
   - component: {fileID: 8753456768505668968}
   - component: {fileID: 7693071336633452120}
+  - component: {fileID: 8572539003575874142}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -121,6 +122,72 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8572539003575874142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765628703138818086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10beb2a000f401e83cba6a59ab1b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonFeedBack
+  _playSounds: 1
+  _acPointerEntrer:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: e59410da84cda6a43a85afd797df6bfb, type: 3}
+  _acPointerExit:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds: []
+  _acPointerDown:
+    _minPitch: 1
+    _maxPitch: 1
+    _volume: 0.75
+    _sounds:
+    - {fileID: 8300000, guid: 63f91e4e36f7d9246abce48516401265, type: 3}
+  _playTweening: 1
+  _animationTime: 0.2
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.4787755
+      outSlope: 2.4787755
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25085622
+    - serializedVersion: 3
+      time: 0.5733713
+      value: 1.0505642
+      inSlope: -6.9571614
+      outSlope: -6.9571614
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.049517628
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -3.3839958
+      outSlope: -3.3839958
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17337792
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _animationEndScale: 1.2
 --- !u!1 &6243529788879169882
 GameObject:
   m_ObjectHideFlags: 0

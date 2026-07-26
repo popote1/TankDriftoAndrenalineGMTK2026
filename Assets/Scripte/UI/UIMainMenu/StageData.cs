@@ -23,6 +23,7 @@ public class StageData {
     public StageData(SoStageData soStageData) {
         SoStageData = soStageData;
         IsUnlock = GameStateData.MedalScore >= SoStageData.MedalScoreToUnlock;
+        BestTime =  int.MaxValue;
         GameStateData.OnMedalCountChange += CheckIfUnlock;
         GameStateData.OnCodeSubmition+= GameStateDataOnOnCodeSubmition;
     }
@@ -54,7 +55,7 @@ public class StageData {
             CreatorMedal = true;
             GameStateData.GainMadal();
         }
-        if( newtime< BestTime) BestTime = newtime;
+        if( newtime < BestTime) BestTime = newtime;
     }
 
     public bool UnlockCreatorMedal(int time) => !CreatorMedal && time < SoStageData.CreatorTime;
